@@ -1,0 +1,18 @@
+.message-bubble {
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 60%;
+  word-wrap: break-word;
+  color: white;
+}
+
+/* Creating the tail effect */
+.message-bubble::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent; /* Adjust for tail size */
+  border-right: 10px solid transparent; /* Adjust for tail size */
+}
