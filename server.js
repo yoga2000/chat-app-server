@@ -13,7 +13,7 @@ const { saveSocketIdAndStatus } = require("./utils/socketFunctions");
 app.use(cookieParser());
 app.use(express.json());
 const corsOptions = {
-  origin: ["http://localhost:5173", "http://192.168.179.172:5173", "http://192.168.103.172:5173", "http://192.168.73.172:5173"],
+  origin: ["http://localhost:5173", "http://192.168.179.172:5173", "http://192.168.103.172:5173", "http://192.168.73.172:5173", "http://192.168.73.172:5173"],
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -23,7 +23,7 @@ dbConnection();
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://192.168.179.172:5173", "http://192.168.103.172:5173", "http://192.168.73.172:5173"],
+    origin: ["http://localhost:5173", "http://192.168.179.172:5173", "http://192.168.103.172:5173", "http://192.168.73.172:5173", "http://192.168.73.172:5173"],
     methods: ["GET", "POST"],
     credentials: true,
   },
