@@ -13,7 +13,7 @@ const { saveSocketIdAndStatus } = require("./utils/socketFunctions");
 app.use(cookieParser());
 app.use(express.json());
 const corsOptions = {
-  origin: ["https://chatflick.netlify.app"],
+  origin: process.env.CLIENT_URL,
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -23,7 +23,7 @@ dbConnection();
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: ["https://chatflick.netlify.app"],
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
     credentials: true,
   },
