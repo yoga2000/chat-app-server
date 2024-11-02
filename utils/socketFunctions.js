@@ -6,7 +6,7 @@ const saveSocketIdAndStatus = async (email, socket_id, status) => {
   }
   if (status === "online") {
     try {
-      const usr = await User.findOneAndUpdate({ email }, { socket_id, status, lastSeen: null }, { new: true }).select("-password -profilePicture -updatedAt -createdAt");
+      const usr = await User.findOneAndUpdate({ email }, { status, lastSeen: null }, { new: true }).select("-password -profilePicture -updatedAt -createdAt");
       return usr;
     } catch (error) {
       console.log(error);
@@ -14,7 +14,7 @@ const saveSocketIdAndStatus = async (email, socket_id, status) => {
   } else {
     const now = new Date();
     try {
-      const usr = await User.findOneAndUpdate({ email }, { socket_id, status, lastSeen: now }, { new: true }).select("-password -profilePicture -updatedAt -createdAt");
+      const usr = await User.findOneAndUpdate({ email }, { status, lastSeen: now }, { new: true }).select("-password -profilePicture -updatedAt -createdAt");
       return usr;
     } catch (error) {
       console.log(error);
